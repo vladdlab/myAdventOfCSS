@@ -1,0 +1,11 @@
+.page {
+  background-color: var(--background);
+}
+
+.page__body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}

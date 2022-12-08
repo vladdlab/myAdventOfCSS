@@ -1,0 +1,106 @@
+/* Timer */
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 500px;
+  height: 500px;
+
+  border: 10px solid var(--red);
+  border-radius: 50%;
+
+  background: radial-gradient(71.4% 71.4% at 51.7% 28.6%, #3A393F 0%, #17171A 100%);
+  box-shadow: -5px 14px 44px #000000, 5px -16px 50px rgba(255, 255, 255, 0.15), inset 0px 0px 114px rgba(0, 0, 0, 0.45);
+}
+
+.timer--editing {
+  border: 10px solid var(--green);
+}
+
+/* Timer Time */
+
+.timer__time {
+  display: flex;
+  width: 325px;
+  justify-content: center;
+}
+
+.timer__time,
+.timer__minutes,
+.timer__seconds {
+  font-family: 'Bebas Neue';
+  font-size: 12.25rem;
+  line-height: 1;
+  color: var(--white);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.timer__minutes {
+  width: 150px;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  text-align: right;
+}
+.timer--editing .timer__minutes {
+  border-bottom: 1px dashed var(--white);
+}
+
+.timer__seconds {
+  width: 150px;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+}
+.timer--editing .timer__seconds {
+  border-bottom: 1px dashed var(--white);
+}
+
+/* Timer Toggle */
+
+.timer__toggle {
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.25;
+  letter-spacing: 0.6em;
+  color: var(--white);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5em;
+  margin: 2.25em 0 1em;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.timer--editing .timer__toggle {
+  visibility: hidden;
+}
+
+/* Timer Settings */
+
+.timer__settings {
+  width: 32px;
+  height: 32px;
+  background-image: url('../images/gear.svg');
+  background-size: 32px 32px;
+  background-position: top;
+  background-color: transparent;
+  color: #3A393F;
+  border: none;
+  cursor: pointer;
+}
+
+.timer--active .timer__settings {
+  visibility: hidden;
+}
+
+.timer--editing .timer__settings {
+  background-image: url('../images/check.svg');
+}
