@@ -6,14 +6,26 @@ class Timer {
     this._timerToggleEl = timerToggleEl;
     this._timerSettingsEl = timerSettingsEl;
 
-
-    this._countDownDate = null;
+    this._finishTime = null;
     this._minutes = 15;
     this._seconds = 0;
+    this._percent = 100;
 
+    this._initialTimeAmount = null;
     this._timeInterval = null;
     this._timerToggleEl.onclick = () => this.start();
     this._timerSettingsEl.onclick = () => this.edit();
+  }
+
+  set finishTime(value) {
+    if (!(value instanceof Date && !isNaN(value))) return;
+    this._finishTime = value;
+    this._finishTime.setMinutes(this._finishTime.getMinutes() + this._minutes);
+    this._finishTime.setSeconds(this._finishTime.getSeconds() + this._seconds);
+    this._initialTimeAmount = this._finishTime.getTime() - Date.now();
+  }
+  get finishTime() {
+    return this._finishTime.getTime();
   }
 
   set minutes(value) {
@@ -23,6 +35,7 @@ class Timer {
   get minutes() {
     return this._minutes >= 10 ? this._minutes : `0${this._minutes}`;
   }
+
   set seconds(value) {
     this._seconds = value;
     this._timerSecondsEl.value = this.seconds;
@@ -31,37 +44,47 @@ class Timer {
     return this._seconds >= 10 ? this._seconds : `0${this._seconds}`;
   }
 
+  set percent(value) {
+    this._percent = value;
+    document.documentElement.style.setProperty('--percent',  `${value}%`);
+  }
+  get percent() {
+    return this._percent;
+  }
+
   start() {
     this._timerEl.classList.toggle('timer--active');
     this._timerToggleEl.innerText = 'STOP';
     this._timerToggleEl.onclick = () => this.stop();
-    this._countDownDate = new Date();
-    this._countDownDate.setMinutes(this._countDownDate.getMinutes() + this._minutes);
-    this._countDownDate.setSeconds(this._countDownDate.getSeconds() + this._seconds);
+
+    this.finishTime = new Date();
+
     setTimeout(() => this.countTime(), 200);
     this._timeInterval = setInterval(() => this.countTime(), 1000);
   }
 
   stop() {
-    this._timerEl.classList.toggle('timer--active');
     clearInterval(this._timeInterval);
+    this.percent = 100;
+    this._timerEl.classList.toggle('timer--active');
     this._timerToggleEl.innerText = 'START';
     this._timerToggleEl.onclick = () => this.start();
   }
 
   finish() {
-    this._timerEl.classList.toggle('timer--active');
-    clearInterval(this._timeInterval);
-    this._timerToggleEl.innerText = 'START';
-    this._timerToggleEl.onclick = () => this.start();
+    this.stop();
     this.minutes = 0;
     this.seconds = 0;
+    alert('Timer is finished!');
   }
 
   countTime() {
-    const dif = this._countDownDate.getTime() - Date.now();
+    const dif = this.finishTime - Date.now();
+
     this.minutes = Math.floor((dif % (1000 * 60 * 60)) / (1000 * 60));
     this.seconds = Math.floor((dif % (1000 * 60)) / 1000);
+    this.percent = Math.floor((dif / this._initialTimeAmount) * 100);
+
     if (this._minutes <= 0 && this._seconds <= 0) this.finish();
   }
 

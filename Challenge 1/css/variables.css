@@ -1,8 +1,11 @@
 :root {
+  --black: #000;
   --grey: #2B2A30;
   --red: #9d0000;
   --green: #00aa51;
   --white: #fff;
 
-  --background: var(--grey);
+
+  --percent: 100%;
+  --progress-color: var(--red);
 }
