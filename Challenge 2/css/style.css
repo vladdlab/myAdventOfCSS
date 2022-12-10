@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import 'variables.css';
+@import 'page.css';
+@import 'shop.css';
+@import 'dish.css';
+@import 'cart-btn.css';
+@import 'purchase.css';
+@import 'controls.css';
+@import 'calcs.css';
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

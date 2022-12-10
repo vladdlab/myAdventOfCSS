@@ -1,0 +1,50 @@
+.dish {
+  display: flex;
+  padding: 1.5em 0 0 1.5em;
+  width: 23.125em;
+  box-sizing: border-box;
+  gap: 1.25em;
+  background-color: var(--dish-background-1);
+  border-radius: var(--radius-2);
+}
+.dish:nth-child(2n) {
+  background-color: var(--dish-background-2);
+}
+.dish:nth-child(3n) {
+  background-color: var(--dish-background-3);
+}
+.dish:nth-child(4n) {
+  background-color: var(--dish-background-4);
+}
+
+
+
+.dish__image {
+  width: 150px;
+  height: 146px;
+  margin: -2.6em 0 0 -2.6em;
+}
+
+.dish__info {
+  display: flex;
+  width: 9.875em;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.dish__name {
+  font-size: 1.125rem;
+  line-height: 0.9;
+  font-weight: normal;
+  margin: 0;
+}
+
+.dish__price {
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.dish__btn {
+  margin-bottom: -0.5em;
+}

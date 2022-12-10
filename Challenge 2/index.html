@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" class="page">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge 2</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="page__body">
+  <main class="shop" id="app" v-scope @vue:mounted="showSections">
+    <h1 class="visually-hidden">Our web menu</h1>
+
+    <section class="shop__section shop__section--loading">
+      <div class="shop__inner">
+        <h2 class="shop__header">To Go Menu</h2>
+
+        <ul class="shop__dishes">
+          <li class="dish" v-scope="Dish({ dish: dish })" v-for="dish in dishes" :key="dish.id" @purchase:add="addPurchase">
+            <img class="dish__image" :src="dish.imageUrl" width="150" height="146" :alt="dish.name">
+            <div class="dish__info">
+              <h3 class="dish__name">{{ dish.name }}</h3>
+              <p class="dish__price">{{ price }}</p>
+              <button class="dish__btn cart-btn" :class="{ 'cart-btn--active': isInCard }" @click="addToCart">
+                <span class="cart-btn__add-to-cart">Add to Cart</span>
+                <span class="cart-btn__in-cart">In Cart</span>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="shop__section shop__section--loading">
+      <div class="shop__inner">
+        <h2 class="shop__header">Your Cart</h2>
+
+        <div class="shop__cart" v-if="store.purchases.length >= 1">
+          <ul class="shop__purchases">
+            <li class="purchase" v-scope="Purchase({ purchase: purchase })" v-for="purchase in store.purchases" :key="purchase.id" @purchase:remove="removePurchase">
+              <div class="purchase__image-wrapper">
+                <img class="purchase__image" :src="purchase.imageUrl" width="64" height="64" :alt="purchase.name">
+                <div class="purchase__amount">{{ purchase.amount }}</div>
+              </div>
+              <div class="purchase__info">
+                <h3 class="purchase__name">{{ purchase.name }}</h3>
+                <p class="purchase__price">{{ price }}</p>
+              </div>
+              <div class="purchase__controls controls">
+                <button class="controls__btn controls__btn--down" @click="reduce"></button>
+                <p class="controls__value">{{ purchase.amount }}</p>
+                <button class="controls__btn controls__btn--up" @click="add"></button>
+              </div>
+              <div class="purchase__total">{{ total }}</div>
+            </li>
+          </ul>
+
+          <dl class="shop__calcs calcs">
+            <dt class="calcs__name">Subtotal</dt>
+            <dd class="calcs__value">{{ subTotal }}</dd>
+            <dt class="calcs__name">Tax</dt>
+            <dd class="calcs__value">{{ tax }}</dd>
+            <dt class="calcs__name">Total</dt>
+            <dd class="calcs__value">{{ total }}</dd>
+          </dl>
+        </div>
+        <p class="shop__empty-cart-message" v-else>Your cart is empty.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="main.mjs" type="module"></script>
+</body>
+</html>

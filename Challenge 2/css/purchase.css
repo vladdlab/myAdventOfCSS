@@ -1,0 +1,74 @@
+.purchase {
+  display: grid;
+  grid-template-areas: "image info info"
+                       "image controls total";
+  grid-template-columns: 4em 1fr 1fr;
+  gap: 1em;
+  padding-bottom: 2.625em;
+  border-bottom: 1px solid var(--border-color);
+}
+.purchase:last-child {
+  border-bottom: 5px solid var(--border-color);
+}
+
+.purchase__image-wrapper {
+  grid-area: image;
+  position: relative;
+}
+
+.purchase__image {
+  width: 4em;
+  height: 4em;
+}
+
+.purchase__amount {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  width: 2em;
+  height: 2em;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--black);
+  border-radius: var(--radius-2);
+
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--white);
+}
+
+.purchase__info {
+  grid-area: info;
+}
+
+.purchase__name {
+  font-size: 1.125rem;
+  line-height: 0.9;
+  font-weight: normal;
+  margin: 0;
+}
+
+.purchase__price {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 2;
+  margin: 0;
+}
+
+.purchase__controls {
+  grid-area: controls;
+}
+
+.purchase__total {
+  grid-area: total;
+
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1;
+  text-align: right;
+}

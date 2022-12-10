@@ -1,0 +1,24 @@
+:root {
+  --background-color: #EFF0F6;
+  --border-color: #D7D7F9;
+  --primary-purple: #6B00F5;
+  --pattens-blue: #e1f0fe;
+  --ghost-white: #f7f7ff;
+  --white-ice: #defef0;
+  --white: #FFF;
+  --grey: #C7CBE3;
+  --black: #000;
+
+  --radius-1: 25px;
+  --radius-2: 20px;
+
+  --scrollbar-width: 11px;
+  --scrollbar-bd-radius: 6px;
+  --scrollbar-bg: transparent;
+  --scrollbar-thumb-bg: #cfcfcf;
+
+  --dish-background-1: rgba(122, 179, 243, 0.2);
+  --dish-background-2: rgba(233, 121, 178, 0.2);
+  --dish-background-3: rgba(215, 215, 249, 0.2);
+  --dish-background-4: rgba(120, 247, 187, 0.2);;
+}

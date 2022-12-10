@@ -1,0 +1,35 @@
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.625em;
+}
+
+.controls__btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background-color: var(--primary-purple);
+  background-image: url('../images/chevron.svg');
+  background-repeat: no-repeat;
+  background-position: 45% 50%;
+}
+
+.controls__btn--down {
+
+}
+
+.controls__btn--up {
+  transform: rotate(180deg);
+}
+
+.controls__value {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  min-width: 1.5em;
+  text-align: center;
+  margin: 0;
+}

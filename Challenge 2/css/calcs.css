@@ -1,0 +1,28 @@
+.calcs {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  text-align: right;
+  gap: 1.5625em 1.25em;
+  margin: 2.1875em 0;
+}
+
+.calcs__name {
+  font-size: 1rem;
+  line-height: 2;
+  font-weight: 700;
+}
+
+.calcs__name::after {
+  content: ": ";
+}
+
+.calcs__value {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1;
+  margin: 0;
+}
+
+.calcs__value:last-child {
+  color: var(--primary-purple);
+}
