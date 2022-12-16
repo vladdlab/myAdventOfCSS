@@ -1,0 +1,16 @@
+.page {
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+.page__body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Krona One', sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

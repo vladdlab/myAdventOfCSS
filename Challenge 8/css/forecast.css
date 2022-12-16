@@ -1,0 +1,135 @@
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 25px;
+}
+
+.forecast__section {
+  width: 175px;
+}
+
+.forecast__date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--date-color);
+}
+
+.forecast__week-day {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  letter-spacing: 0.2em;
+}
+
+.forecast__month-day {
+  font-size: 4.5rem;
+  line-height: 1.2;
+}
+
+.forecast__weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 1.5625em;
+  box-sizing: border-box;
+
+  background: var(--cloudy-background);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 11px 4px 34px rgba(32, 77, 92, 0.7);
+  border-radius: 50px;
+
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.forecast__weather--cloudy {
+  background: var(--cloudy-background);
+  color: var(--cloudy-text-color);
+}
+.forecast__weather--sunny {
+  background: var(--sunny-background);
+  color: var(--sunny-text-color);
+}
+.forecast__weather--stormy {
+  background: var(--stormy-background);
+  color: var(--stormy-text-color);
+}
+.forecast__weather--snowy {
+  background: var(--snowy-background);
+  color: var(--snowy-text-color);
+}
+.forecast__weather--rainy {
+  background: var(--rainy-background);
+  color: var(--rainy-text-color);
+}
+.forecast__weather--partly {
+  background: var(--partly-background);
+  color: var(--partly-text-color);
+}
+
+/* Forecast Image */
+
+.forecast__image {
+  margin: 0 0 0 0;
+}
+.forecast__weather--cloudy .forecast__image {
+  margin: 50px -50px 0 0;
+}
+.forecast__weather--sunny .forecast__image {
+  margin: -20px 0 0 0;
+}
+.forecast__weather--stormy .forecast__image {
+  margin: 13px -45px 0 0;
+}
+.forecast__weather--snowy .forecast__image {
+  margin: -15px -17px 0 0;
+}
+.forecast__weather--rainy .forecast__image {
+  margin: -42px -38px 0 0;
+}
+.forecast__weather--partly .forecast__image {
+  margin: 5px -40px 0 0;
+}
+
+/* Forecast Degrees */
+
+.forecast__degrees {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 6.875rem;
+  line-height: 1.5;
+  margin: 0;
+  position: relative;
+}
+.forecast__degrees:after {
+  position: absolute;
+  content: "\00b0";
+  font-size: 3.5rem;
+}
+.forecast__weather--cloudy .forecast__degrees {
+  color: var(--cloudy-temp-color);
+}
+.forecast__weather--sunny .forecast__degrees {
+  color: var(--sunny-temp-color);
+}
+.forecast__weather--stormy .forecast__degrees {
+  color: var(--stormy-temp-color);
+}
+.forecast__weather--snowy .forecast__degrees {
+  color: var(--snowy-temp-color);
+}
+.forecast__weather--rainy .forecast__degrees {
+  color: var(--rainy-temp-color);
+}
+.forecast__weather--partly .forecast__degrees {
+  color: var(--partly-temp-color);
+}
+
+.forecast__degrees-value::after {
+  content: "%";
+}
+
+.forecast__pressure-value::after {
+  content: "\00b0";
+}
