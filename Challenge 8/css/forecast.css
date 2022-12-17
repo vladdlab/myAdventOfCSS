@@ -6,6 +6,10 @@
 
 .forecast__section {
   width: 175px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
 }
 
 .forecast__date {
@@ -27,6 +31,7 @@
 }
 
 .forecast__weather {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,6 +76,7 @@
 
 .forecast__image {
   margin: 0 0 0 0;
+  flex-grow: 1;
 }
 .forecast__weather--cloudy .forecast__image {
   margin: 50px -50px 0 0;
