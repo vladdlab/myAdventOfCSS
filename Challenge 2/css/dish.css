@@ -1,19 +1,30 @@
 .dish {
   display: flex;
   padding: 1.5em 0 0 1.5em;
-  width: 23.125em;
   box-sizing: border-box;
   gap: 1.25em;
+  border-radius: var(--radius-2);
+  position: relative;
+}
+
+.dish::after {
+  z-index: 1;
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 23.125em;
   background-color: var(--dish-background-1);
   border-radius: var(--radius-2);
 }
-.dish:nth-child(2n) {
+.dish:nth-child(2n)::after {
   background-color: var(--dish-background-2);
 }
-.dish:nth-child(3n) {
+.dish:nth-child(3n)::after {
   background-color: var(--dish-background-3);
 }
-.dish:nth-child(4n) {
+.dish:nth-child(4n)::after {
   background-color: var(--dish-background-4);
 }
 
@@ -23,6 +34,7 @@
   width: 150px;
   height: 146px;
   margin: -2.6em 0 0 -2.6em;
+  z-index: 2;
 }
 
 .dish__info {
@@ -30,6 +42,7 @@
   width: 9.875em;
   flex-direction: column;
   gap: 1em;
+  z-index: 2;
 }
 
 .dish__name {
