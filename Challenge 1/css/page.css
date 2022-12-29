@@ -1,11 +1,13 @@
 .page {
   background-color: var(--grey);
+  height: -webkit-fill-available;
 }
 
 .page__body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   margin: 0;
 }
